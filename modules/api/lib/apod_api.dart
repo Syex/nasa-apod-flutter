@@ -1,8 +1,8 @@
 import 'dart:convert';
 
+import 'package:api/picture_entity.dart';
 import 'package:http/http.dart' as http;
 import 'package:injectable/injectable.dart';
-import 'package:nasa_apod/data/picture_entity.dart';
 
 @injectable
 class ApodApi {

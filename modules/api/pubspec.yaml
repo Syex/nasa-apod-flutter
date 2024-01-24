@@ -1,20 +1,19 @@
-name: nasa_apod
-description: "A Flutter app showing the APOD."
-publish_to: "none"
-version: 1.0.0+1
+name: api
+description: "The API module."
 
 environment:
-  sdk: ">=3.2.5 <4.0.0"
+  sdk: '>=3.2.5 <4.0.0'
+  flutter: ">=1.17.0"
 
 dependencies:
   flutter:
     sdk: flutter
 
-  api:
-    path: modules/api
-
   injectable: ^2.3.2
   get_it: ^7.6.7
+  http: ^1.2.0
+  json_annotation: ^4.8.1
+  equatable: ^2.0.5
 
 dev_dependencies:
   flutter_test:
@@ -24,7 +23,4 @@ dev_dependencies:
   build_runner: ^2.4.8
 
   flutter_lints: ^3.0.1
-
-flutter:
-
-  uses-material-design: true
+  json_serializable: ^6.7.1

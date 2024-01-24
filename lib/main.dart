@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
-import 'package:nasa_apod/data/apod_api.dart';
+import 'package:api/apod_api.dart';
 
 import 'di.dart';
 
