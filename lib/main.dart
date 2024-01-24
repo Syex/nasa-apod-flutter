@@ -1,6 +1,13 @@
+import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
+import 'package:nasa_apod/data/apod_api.dart';
+
+import 'di.dart';
 
 void main() {
+  configureDependencies();
+  EquatableConfig.stringify = true;
+
   runApp(const MyApp());
 }
 
@@ -41,7 +48,12 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
 
-  void _incrementCounter() {
+  final api = getIt<ApodApi>();
+
+  void _incrementCounter() async {
+    final picture = await api.getPictureOfToday();
+    print(picture);
+
     setState(() {
       // This call to setState tells the Flutter framework that something has
       // changed in this State, which causes it to rerun the build method below

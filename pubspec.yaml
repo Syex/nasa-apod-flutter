@@ -10,13 +10,22 @@ dependencies:
   flutter:
     sdk: flutter
 
+  injectable: ^2.3.2
+  get_it: ^7.6.7
   cupertino_icons: ^1.0.2
+  http: ^1.2.0
+  json_annotation: ^4.8.1
+  equatable: ^2.0.5
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
+  injectable_generator: ^2.3.2
+  build_runner: ^2.4.8
+
   flutter_lints: ^3.0.1
+  json_serializable: ^6.7.1
 
 flutter:
 
