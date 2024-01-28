@@ -25,6 +25,8 @@ class Picture extends Equatable {
       this.thumbnailUrl,
       this.copyright});
 
+  String imageUrl() => hdurl ?? url;
+
   @override
   List<Object?> get props => [
         date,
