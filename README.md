@@ -1,16 +1,10 @@
-# nasa_apod
+# Flutter app showing NASA's Astronomy Picture of the Day
 
-A new Flutter project.
+A simple app I wrote to refresh/increase my Flutter knowledge.
 
-## Getting Started
+* Explored multi-module approaches. `modules/api` is a separate Dart package encapsulating networking logic.
+* Added `injectable` on top of `getIt`, which I already knew.
+* Used `freezed` instead of `Equatable`.
+* Initially explored Riverpod for state management, but went back to using Cubits.
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![](sample_pic0.png) ![](sample_pic1.png)
