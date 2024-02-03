@@ -1,4 +1,3 @@
-import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:nasa_apod/picture_view/picture_page.dart';
 
@@ -6,7 +5,6 @@ import 'di.dart';
 
 void main() {
   configureDependencies();
-  EquatableConfig.stringify = true;
 
   runApp(const MyApp());
 }

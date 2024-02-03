@@ -1,5 +1,7 @@
-import 'package:equatable/equatable.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:nasa_apod/picture_view/picture.dart';
+
+part "picture_view_state.freezed.dart";
 
 sealed class PictureViewState {}
 
@@ -7,12 +9,10 @@ class PictureViewLoadingState extends PictureViewState {}
 
 class PictureViewErrorState extends PictureViewState {}
 
-class PictureViewSuccessState extends PictureViewState with EquatableMixin {
-  final Picture picture;
-  final DateTime selectedDate;
-
-  PictureViewSuccessState({required this.picture, required this.selectedDate});
-
-  @override
-  List<Object?> get props => [picture, selectedDate];
+@freezed
+class PictureViewSuccessState extends PictureViewState
+    with _$PictureViewSuccessState {
+  factory PictureViewSuccessState(
+      {required Picture picture,
+      required DateTime selectedDate}) = _PictureViewSuccessState;
 }

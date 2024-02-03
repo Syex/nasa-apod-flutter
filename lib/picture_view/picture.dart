@@ -1,43 +1,26 @@
 import 'package:api/picture_entity.dart';
-import 'package:equatable/equatable.dart' show Equatable;
-import 'package:flutter/foundation.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-@immutable
-class Picture extends Equatable {
-  final DateTime date;
-  final String title;
-  final String url;
-  final String? hdurl;
-  final MediaType? mediaType;
-  final String explanation;
-  final List<String> concepts;
-  final String? thumbnailUrl;
-  final String? copyright;
+part 'picture.freezed.dart';
 
-  const Picture(
-      {required this.date,
-      required this.title,
-      required this.url,
-      this.hdurl,
-      this.mediaType,
-      required this.explanation,
-      required this.concepts,
-      this.thumbnailUrl,
-      this.copyright});
+@freezed
+class Picture with _$Picture {
+
+  const Picture._();
+
+  factory Picture(
+      {
+        required DateTime date,
+        required String title,
+        required String url,
+        String? hdurl,
+        MediaType? mediaType,
+        required String explanation,
+        required List<String> concepts,
+        String? thumbnailUrl,
+        String? copyright}) = _Picture;
 
   String imageUrl() => hdurl ?? url;
-
-  @override
-  List<Object?> get props => [
-        date,
-        title,
-        url,
-        hdurl,
-        mediaType,
-        explanation,
-        thumbnailUrl,
-        copyright
-      ];
 }
 
 extension PictureConverter on PictureEntity {

@@ -6,8 +6,8 @@ part of 'picture_entity.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-PictureEntity _$PictureEntityFromJson(Map<String, dynamic> json) =>
-    PictureEntity(
+_$PictureEntityImpl _$$PictureEntityImplFromJson(Map<String, dynamic> json) =>
+    _$PictureEntityImpl(
       date: json['date'] as String,
       title: json['title'] as String,
       url: json['url'] as String,
@@ -21,7 +21,7 @@ PictureEntity _$PictureEntityFromJson(Map<String, dynamic> json) =>
       copyright: json['copyright'] as String?,
     );
 
-Map<String, dynamic> _$PictureEntityToJson(PictureEntity instance) =>
+Map<String, dynamic> _$$PictureEntityImplToJson(_$PictureEntityImpl instance) =>
     <String, dynamic>{
       'date': instance.date,
       'title': instance.title,
