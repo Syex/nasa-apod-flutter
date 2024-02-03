@@ -21,6 +21,8 @@ class Picture with _$Picture {
         String? copyright}) = _Picture;
 
   String imageUrl() => hdurl ?? url;
+
+  String? copyrightText() => copyright != null ? "© ${copyright!}" : null;
 }
 
 extension PictureConverter on PictureEntity {
