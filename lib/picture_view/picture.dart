@@ -1,5 +1,6 @@
 import 'package:api/picture_entity.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:intl/intl.dart';
 
 part 'picture.freezed.dart';
 
@@ -23,6 +24,8 @@ class Picture with _$Picture {
   String imageUrl() => hdurl ?? url;
 
   String? copyrightText() => copyright != null ? "© ${copyright!}" : null;
+
+  String dateForUi() => DateFormat("dd.MM.yyyy").format(date);
 }
 
 extension PictureConverter on PictureEntity {

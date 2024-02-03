@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:api/picture_entity.dart';
 import 'package:http/http.dart' as http;
 import 'package:injectable/injectable.dart';
+import 'package:intl/intl.dart';
 
 @injectable
 class ApodApi {
@@ -11,10 +12,14 @@ class ApodApi {
 
   ApodApi(this._httpClient, @Named("baseUrl") this._baseUrl);
 
-  Future<PictureEntity> getPictureOfToday() async {
+  Future<PictureEntity> getPictureOfDate(DateTime date) async {
     var uri = Uri.parse(_baseUrl);
+    final requestedDate = DateFormat("yyyy-MM-dd").format(date);
 
-    final queryParams = {"api_key": "DEMO_KEY"};
+    final queryParams = {
+      "api_key": "SoRTTFVh6VqNcfSQWJgOTfvPJJnuazQF8ITRDCiu",
+      "date": requestedDate
+    };
 
     uri = uri.replace(queryParameters: queryParams);
 

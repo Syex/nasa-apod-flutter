@@ -18,6 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$PictureViewSuccessState {
   Picture get picture => throw _privateConstructorUsedError;
   DateTime get selectedDate => throw _privateConstructorUsedError;
+  bool get showNextButton => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $PictureViewSuccessStateCopyWith<PictureViewSuccessState> get copyWith =>
@@ -30,7 +31,7 @@ abstract class $PictureViewSuccessStateCopyWith<$Res> {
           $Res Function(PictureViewSuccessState) then) =
       _$PictureViewSuccessStateCopyWithImpl<$Res, PictureViewSuccessState>;
   @useResult
-  $Res call({Picture picture, DateTime selectedDate});
+  $Res call({Picture picture, DateTime selectedDate, bool showNextButton});
 
   $PictureCopyWith<$Res> get picture;
 }
@@ -51,6 +52,7 @@ class _$PictureViewSuccessStateCopyWithImpl<$Res,
   $Res call({
     Object? picture = null,
     Object? selectedDate = null,
+    Object? showNextButton = null,
   }) {
     return _then(_value.copyWith(
       picture: null == picture
@@ -61,6 +63,10 @@ class _$PictureViewSuccessStateCopyWithImpl<$Res,
           ? _value.selectedDate
           : selectedDate // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      showNextButton: null == showNextButton
+          ? _value.showNextButton
+          : showNextButton // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 
@@ -82,7 +88,7 @@ abstract class _$$PictureViewSuccessStateImplCopyWith<$Res>
       __$$PictureViewSuccessStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({Picture picture, DateTime selectedDate});
+  $Res call({Picture picture, DateTime selectedDate, bool showNextButton});
 
   @override
   $PictureCopyWith<$Res> get picture;
@@ -103,6 +109,7 @@ class __$$PictureViewSuccessStateImplCopyWithImpl<$Res>
   $Res call({
     Object? picture = null,
     Object? selectedDate = null,
+    Object? showNextButton = null,
   }) {
     return _then(_$PictureViewSuccessStateImpl(
       picture: null == picture
@@ -113,6 +120,10 @@ class __$$PictureViewSuccessStateImplCopyWithImpl<$Res>
           ? _value.selectedDate
           : selectedDate // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      showNextButton: null == showNextButton
+          ? _value.showNextButton
+          : showNextButton // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -121,16 +132,20 @@ class __$$PictureViewSuccessStateImplCopyWithImpl<$Res>
 
 class _$PictureViewSuccessStateImpl implements _PictureViewSuccessState {
   _$PictureViewSuccessStateImpl(
-      {required this.picture, required this.selectedDate});
+      {required this.picture,
+      required this.selectedDate,
+      required this.showNextButton});
 
   @override
   final Picture picture;
   @override
   final DateTime selectedDate;
+  @override
+  final bool showNextButton;
 
   @override
   String toString() {
-    return 'PictureViewSuccessState(picture: $picture, selectedDate: $selectedDate)';
+    return 'PictureViewSuccessState(picture: $picture, selectedDate: $selectedDate, showNextButton: $showNextButton)';
   }
 
   @override
@@ -140,11 +155,14 @@ class _$PictureViewSuccessStateImpl implements _PictureViewSuccessState {
             other is _$PictureViewSuccessStateImpl &&
             (identical(other.picture, picture) || other.picture == picture) &&
             (identical(other.selectedDate, selectedDate) ||
-                other.selectedDate == selectedDate));
+                other.selectedDate == selectedDate) &&
+            (identical(other.showNextButton, showNextButton) ||
+                other.showNextButton == showNextButton));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, picture, selectedDate);
+  int get hashCode =>
+      Object.hash(runtimeType, picture, selectedDate, showNextButton);
 
   @JsonKey(ignore: true)
   @override
@@ -157,12 +175,15 @@ class _$PictureViewSuccessStateImpl implements _PictureViewSuccessState {
 abstract class _PictureViewSuccessState implements PictureViewSuccessState {
   factory _PictureViewSuccessState(
       {required final Picture picture,
-      required final DateTime selectedDate}) = _$PictureViewSuccessStateImpl;
+      required final DateTime selectedDate,
+      required final bool showNextButton}) = _$PictureViewSuccessStateImpl;
 
   @override
   Picture get picture;
   @override
   DateTime get selectedDate;
+  @override
+  bool get showNextButton;
   @override
   @JsonKey(ignore: true)
   _$$PictureViewSuccessStateImplCopyWith<_$PictureViewSuccessStateImpl>

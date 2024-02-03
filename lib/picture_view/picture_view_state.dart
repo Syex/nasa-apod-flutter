@@ -14,5 +14,6 @@ class PictureViewSuccessState extends PictureViewState
     with _$PictureViewSuccessState {
   factory PictureViewSuccessState(
       {required Picture picture,
-      required DateTime selectedDate}) = _PictureViewSuccessState;
+      required DateTime selectedDate,
+      required bool showNextButton}) = _PictureViewSuccessState;
 }

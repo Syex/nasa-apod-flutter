@@ -14,11 +14,38 @@ class PictureViewCubit extends Cubit<PictureViewState> {
     final dateToLoad = selectedDate ?? DateTime.now();
 
     try {
-      final pictureEntity = await _apodApi.getPictureOfToday();
+      final pictureEntity = await _apodApi.getPictureOfDate(dateToLoad);
       final picture = pictureEntity.toPicture();
-      emit(PictureViewSuccessState(picture: picture, selectedDate: dateToLoad));
+      emit(PictureViewSuccessState(
+          picture: picture,
+          selectedDate: dateToLoad,
+          showNextButton: _canLoadNextDay(dateToLoad)));
     } catch (e) {
       emit(PictureViewErrorState());
     }
+  }
+
+  void onPreviousDayRequested() {
+    final currentSelectedDate = state is PictureViewSuccessState
+        ? (state as PictureViewSuccessState).selectedDate
+        : DateTime.now();
+    emit(PictureViewLoadingState());
+    final previousDate = currentSelectedDate.subtract(const Duration(days: 1));
+    loadPictureOfSelectedDate(previousDate);
+  }
+
+  void onNextDayRequested() {
+    final currentSelectedDate = state is PictureViewSuccessState
+        ? (state as PictureViewSuccessState).selectedDate
+        : DateTime.now();
+    emit(PictureViewLoadingState());
+    final nextDate = currentSelectedDate.add(const Duration(days: 1));
+    loadPictureOfSelectedDate(nextDate);
+  }
+
+  bool _canLoadNextDay(DateTime selectedDate) {
+    final currentDate = DateTime.now();
+    final selectedDatePlusOne = selectedDate.add(const Duration(days: 1));
+    return selectedDatePlusOne.isBefore(currentDate);
   }
 }
